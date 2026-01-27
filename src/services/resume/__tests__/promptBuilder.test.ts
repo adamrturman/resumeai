@@ -6,15 +6,24 @@ import { experienceCollection } from '../../../data/experienceCollection'
 describe('promptBuilder', () => {
   describe('buildResumePrompt', () => {
     it('should include job description in the prompt', () => {
-      const jobDescription = 'We are looking for a React developer with TypeScript experience.'
-      const prompt = buildResumePrompt(jobDescription, baseResume, experienceCollection)
+      const jobDescription =
+        'We are looking for a React developer with TypeScript experience.'
+      const prompt = buildResumePrompt(
+        jobDescription,
+        baseResume,
+        experienceCollection
+      )
 
       expect(prompt).toContain(jobDescription)
     })
 
     it('should include anti-hallucination instruction', () => {
       const jobDescription = 'Software engineer position'
-      const prompt = buildResumePrompt(jobDescription, baseResume, experienceCollection)
+      const prompt = buildResumePrompt(
+        jobDescription,
+        baseResume,
+        experienceCollection
+      )
 
       expect(prompt.toLowerCase()).toContain('only use skills')
       expect(prompt.toLowerCase()).toContain('do not invent')
@@ -22,7 +31,11 @@ describe('promptBuilder', () => {
 
     it('should include available skills from experience collection', () => {
       const jobDescription = 'Looking for React developer'
-      const prompt = buildResumePrompt(jobDescription, baseResume, experienceCollection)
+      const prompt = buildResumePrompt(
+        jobDescription,
+        baseResume,
+        experienceCollection
+      )
 
       expect(prompt).toContain('TypeScript')
       expect(prompt).toContain('React')
@@ -30,14 +43,22 @@ describe('promptBuilder', () => {
 
     it('should include work experience bullet points', () => {
       const jobDescription = 'Senior engineer role'
-      const prompt = buildResumePrompt(jobDescription, baseResume, experienceCollection)
+      const prompt = buildResumePrompt(
+        jobDescription,
+        baseResume,
+        experienceCollection
+      )
 
       expect(prompt).toContain('CI/CD pipeline')
     })
 
     it('should ask AI to select relevant skills from provided list', () => {
       const jobDescription = 'Python backend developer'
-      const prompt = buildResumePrompt(jobDescription, baseResume, experienceCollection)
+      const prompt = buildResumePrompt(
+        jobDescription,
+        baseResume,
+        experienceCollection
+      )
 
       expect(prompt.toLowerCase()).toContain('select')
       expect(prompt.toLowerCase()).toContain('relevant')
@@ -45,7 +66,11 @@ describe('promptBuilder', () => {
 
     it('should ask AI to customize bullet points', () => {
       const jobDescription = 'Frontend position'
-      const prompt = buildResumePrompt(jobDescription, baseResume, experienceCollection)
+      const prompt = buildResumePrompt(
+        jobDescription,
+        baseResume,
+        experienceCollection
+      )
 
       expect(prompt.toLowerCase()).toContain('bullet')
     })

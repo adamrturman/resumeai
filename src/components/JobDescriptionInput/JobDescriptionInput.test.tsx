@@ -20,7 +20,9 @@ describe('JobDescriptionInput', () => {
       />
     )
 
-    expect(screen.getByRole('textbox')).toHaveValue('Software Engineer at Google')
+    expect(screen.getByRole('textbox')).toHaveValue(
+      'Software Engineer at Google'
+    )
   })
 
   it('should call onChange when text is entered', async () => {

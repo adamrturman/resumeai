@@ -1,6 +1,9 @@
 import { useState, useCallback } from 'react'
 import { getAIProvider } from '../services/ai'
-import { buildResumePrompt, extractCompanyName } from '../services/resume/promptBuilder'
+import {
+  buildResumePrompt,
+  extractCompanyName,
+} from '../services/resume/promptBuilder'
 import { baseResume } from '../data/baseResume'
 import { experienceCollection } from '../data/experienceCollection'
 
@@ -25,7 +28,11 @@ export function useResumeGeneration(): UseResumeGenerationReturn {
 
     try {
       const provider = getAIProvider()
-      const prompt = buildResumePrompt(jobDescription, baseResume, experienceCollection)
+      const prompt = buildResumePrompt(
+        jobDescription,
+        baseResume,
+        experienceCollection
+      )
       const response = await provider.generateCompletion({ prompt })
 
       setResume(response.content)

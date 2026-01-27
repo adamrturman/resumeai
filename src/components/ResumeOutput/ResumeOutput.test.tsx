@@ -41,9 +41,7 @@ describe('ResumeOutput', () => {
       />
     )
 
-    expect(
-      screen.getByRole('button', { name: /copy/i })
-    ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /copy/i })).toBeInTheDocument()
   })
 
   it('should call onCopy when copy button is clicked', async () => {
@@ -95,9 +93,7 @@ describe('ResumeOutput', () => {
     expect(handleDownload).toHaveBeenCalledTimes(1)
   })
 
-  it('should show copied feedback after copy', async () => {
-    const user = userEvent.setup()
-
+  it('should show copied feedback after copy', () => {
     render(
       <ResumeOutput
         content="Resume content"
