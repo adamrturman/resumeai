@@ -72,7 +72,7 @@ describe('ResumeOutput', () => {
     )
 
     expect(
-      screen.getByRole('button', { name: /download pdf/i })
+      screen.getByRole('button', { name: /download resume/i })
     ).toBeInTheDocument()
   })
 
@@ -89,7 +89,7 @@ describe('ResumeOutput', () => {
       />
     )
 
-    await user.click(screen.getByRole('button', { name: /download pdf/i }))
+    await user.click(screen.getByRole('button', { name: /download resume/i }))
     expect(handleDownload).toHaveBeenCalledTimes(1)
   })
 

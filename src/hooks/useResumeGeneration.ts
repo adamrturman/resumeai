@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { getAIProvider } from '../services/ai'
+import type { ResumeContent } from '../services/ai/types'
 import {
   buildResumePrompt,
   extractCompanyName,
@@ -9,6 +10,7 @@ import { experienceCollection } from '../data/experienceCollection'
 
 interface UseResumeGenerationReturn {
   resume: string | null
+  resumeData: ResumeContent | null
   companyName: string
   loading: boolean
   error: string | null
@@ -18,6 +20,7 @@ interface UseResumeGenerationReturn {
 
 export function useResumeGeneration(): UseResumeGenerationReturn {
   const [resume, setResume] = useState<string | null>(null)
+  const [resumeData, setResumeData] = useState<ResumeContent | null>(null)
   const [companyName, setCompanyName] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -36,7 +39,12 @@ export function useResumeGeneration(): UseResumeGenerationReturn {
       const response = await provider.generateCompletion({ prompt })
 
       setResume(response.content)
-      setCompanyName(extractCompanyName(jobDescription))
+      setResumeData(response.resumeData ?? null)
+
+      // Use company name from AI response, or extract from job description
+      const company =
+        response.resumeData?.companyName || extractCompanyName(jobDescription)
+      setCompanyName(company)
     } catch {
       setError('Failed to generate resume. Please try again.')
     } finally {
@@ -46,12 +54,14 @@ export function useResumeGeneration(): UseResumeGenerationReturn {
 
   const reset = useCallback(() => {
     setResume(null)
+    setResumeData(null)
     setCompanyName('')
     setError(null)
   }, [])
 
   return {
     resume,
+    resumeData,
     companyName,
     loading,
     error,

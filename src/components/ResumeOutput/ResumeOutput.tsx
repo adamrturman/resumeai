@@ -27,7 +27,7 @@ export function ResumeOutput({
             {copied ? 'Copied!' : 'Copy'}
           </button>
           <button onClick={onDownload} className="download-button">
-            Download PDF
+            Download Resume
           </button>
         </div>
       </div>

@@ -5,12 +5,12 @@ import { ErrorDisplay } from './components/ErrorDisplay/ErrorDisplay'
 import { ResumeOutput } from './components/ResumeOutput/ResumeOutput'
 import { useResumeGeneration } from './hooks/useResumeGeneration'
 import { useClipboard } from './hooks/useClipboard'
-import { generatePdf } from './services/pdf/pdfGenerator'
+import { generateResume } from './services/docx/docxGenerator'
 import './App.css'
 
 function App() {
   const [jobDescription, setJobDescription] = useState('')
-  const { resume, companyName, loading, error, generate, reset } =
+  const { resume, resumeData, companyName, loading, error, generate, reset } =
     useResumeGeneration()
   const { copied, copy } = useClipboard()
 
@@ -26,9 +26,19 @@ function App() {
     }
   }
 
-  const handleDownload = () => {
-    if (resume) {
-      generatePdf(resume, companyName)
+  const handleDownload = async () => {
+    if (resumeData) {
+      try {
+        await generateResume(
+          {
+            technicalSkills: resumeData.technicalSkills.join(', '),
+            bullets: resumeData.bullets,
+          },
+          companyName
+        )
+      } catch (err) {
+        console.error('Failed to generate document:', err)
+      }
     }
   }
 
