@@ -1,59 +1,62 @@
 export interface ContactInfo {
   name: string
   email: string
-  phone: string
-  location: string
-  linkedin?: string
-  github?: string
-}
-
-export interface Education {
-  institution: string
-  degree: string
-  field: string
-  graduationDate: string
-  gpa?: string
-  honors?: string[]
+  linkedin: string
 }
 
 export interface WorkExperience {
   company: string
   title: string
-  location: string
   startDate: string
   endDate: string
   highlights: string[]
 }
 
-export interface Certification {
-  name: string
-  issuer: string
-  date: string
-  expirationDate?: string
-  credentialId?: string
+export interface TechnicalTraining {
+  institution: string
+  program: string
+  dates: string
+}
+
+export interface NonTechnicalWorkExperience {
+  title: string
+  organization: string
+  location: string
+  dates: string
+}
+
+export interface Education {
+  institution: string
+  degree: string
+  year: string
 }
 
 export interface Skill {
   name: string
-  category: 'technical' | 'soft' | 'language' | 'tool'
-  proficiency?: 'beginner' | 'intermediate' | 'advanced' | 'expert'
+  category: 'language' | 'framework' | 'tool' | 'concept'
 }
 
 export interface BaseResume {
   contact: ContactInfo
-  summary: string
-  education: Education[]
+  technicalSkills: Skill[]
   workExperience: WorkExperience[]
-  certifications: Certification[]
+  technicalTraining: TechnicalTraining[]
+  nonTechnicalWorkExperience: NonTechnicalWorkExperience[]
+  education: Education[]
 }
 
 export interface ExperienceCollection {
-  skills: Skill[]
-  volunteerWork?: WorkExperience[]
+  allSkills: Skill[]
+  allBulletPoints: Map<string, string[]>
 }
 
-export interface GeneratedResume extends BaseResume {
+export interface GeneratedResume {
+  contact: ContactInfo
+  selectedSkills: Skill[]
+  workExperience: WorkExperience[]
+  technicalTraining: TechnicalTraining[]
+  nonTechnicalWorkExperience: NonTechnicalWorkExperience[]
+  education: Education[]
   targetCompany: string
   targetRole: string
-  selectedSkills: Skill[]
 }

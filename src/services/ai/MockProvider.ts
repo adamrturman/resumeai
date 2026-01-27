@@ -1,4 +1,8 @@
-import type { AIProvider, AICompletionRequest, AICompletionResponse } from './types'
+import type {
+  AIProvider,
+  AICompletionRequest,
+  AICompletionResponse,
+} from './types'
 
 export interface MockProviderOptions {
   delayMs?: number

@@ -14,5 +14,7 @@ export interface AICompletionResponse {
 }
 
 export interface AIProvider {
-  generateCompletion(request: AICompletionRequest): Promise<AICompletionResponse>
+  generateCompletion(
+    request: AICompletionRequest
+  ): Promise<AICompletionResponse>
 }

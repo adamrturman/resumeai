@@ -24,4 +24,8 @@ export function getAIProvider(): AIProvider {
 }
 
 export { MockProvider } from './MockProvider'
-export type { AIProvider, AICompletionRequest, AICompletionResponse } from './types'
+export type {
+  AIProvider,
+  AICompletionRequest,
+  AICompletionResponse,
+} from './types'

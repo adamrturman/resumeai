@@ -3,57 +3,105 @@ import type { BaseResume } from './types'
 export const baseResume: BaseResume = {
   contact: {
     name: 'Adam Turman',
-    email: 'adam.turman@example.com',
-    phone: '(555) 123-4567',
-    location: 'City, State',
-    linkedin: 'linkedin.com/in/adamturman',
-    github: 'github.com/adamturman',
+    email: 'adamrturman@gmail.com',
+    linkedin: 'linkedin.com/in/adam-r-turman',
   },
-  summary:
-    'Experienced software engineer with a passion for building scalable applications and solving complex problems. Skilled in full-stack development with a focus on modern web technologies.',
-  education: [
-    {
-      institution: 'University Name',
-      degree: 'Bachelor of Science',
-      field: 'Computer Science',
-      graduationDate: 'May 2020',
-      gpa: '3.8',
-      honors: ["Dean's List", 'Cum Laude'],
-    },
+  technicalSkills: [
+    { name: 'JavaScript (ES6+)', category: 'language' },
+    { name: 'TypeScript', category: 'language' },
+    { name: 'React', category: 'framework' },
+    { name: 'Python', category: 'language' },
+    { name: 'Git', category: 'tool' },
+    { name: 'Jest', category: 'tool' },
+    { name: 'CI/CD', category: 'concept' },
+    { name: 'Vite', category: 'tool' },
+    { name: 'RESTful APIs', category: 'concept' },
   ],
   workExperience: [
     {
-      company: 'Tech Company Inc.',
+      company: 'Kava Labs',
       title: 'Senior Software Engineer',
-      location: 'City, State',
-      startDate: 'Jan 2022',
-      endDate: 'Present',
+      startDate: 'April 2024',
+      endDate: 'August 2025',
       highlights: [
-        'Led development of microservices architecture serving 1M+ daily users',
-        'Mentored junior developers and conducted code reviews',
-        'Reduced API response time by 40% through optimization',
+        'Design and build scalable, production-grade frontend applications using React and TypeScript, with a strong focus on performance, accessibility, and maintainable architecture',
+        'Led improvements to the CI/CD pipeline, parallelizing unit and integration tests and reducing build times by 67% (15 → 5 minutes) using modern automation practices',
+        'Analyze large datasets and application behavior to identify system-level issues, inform technical decisions, and improve platform reliability',
+        'Participate in code reviews, architectural discussions, and platform-level improvements to raise engineering standards',
       ],
     },
     {
-      company: 'Startup LLC',
-      title: 'Software Engineer',
-      location: 'City, State',
-      startDate: 'Jun 2020',
-      endDate: 'Dec 2021',
+      company: 'Kava Labs',
+      title: 'Software Engineer II',
+      startDate: 'May 2023',
+      endDate: 'March 2024',
       highlights: [
-        'Built React-based dashboard for real-time analytics',
-        'Implemented CI/CD pipeline reducing deployment time by 60%',
-        'Collaborated with product team on feature specifications',
+        'Delivered frontend-focused solutions across the full software development lifecycle, from technical design through development, testing, and production support',
+        'Served as technical lead on a 3-month initiative, authoring technical specifications, coordinating with stakeholders, and guiding two engineers through agile sprints to successful delivery',
+        'Contributed to shared frontend patterns and best practices to support scalable feature development',
+      ],
+    },
+    {
+      company: 'Kava Labs',
+      title: 'Software Engineer I',
+      startDate: 'June 2022',
+      endDate: 'May 2023',
+      highlights: [
+        'Promoted to Software Engineer II after 11 months of consistently exceeding expectations',
+        'Developed, debugged, and maintained code in a fast-paced environment using modern programming languages and agile methodologies',
+      ],
+    },
+    {
+      company: 'Kava Labs',
+      title: 'Frontend Engineer',
+      startDate: 'September 2021',
+      endDate: 'June 2022',
+      highlights: [
+        'Promoted to Software Engineer I after nine months of outstanding performance',
+        'Collaborated cross-functionally with product managers and designers to translate user needs into intuitive, responsive UI implementations',
+      ],
+    },
+    {
+      company: 'Kava Labs',
+      title: 'Developer Support Engineer',
+      startDate: 'February 2021',
+      endDate: 'September 2021',
+      highlights: [
+        'Promoted to Frontend Engineer after seven months of successfully solving user issues',
       ],
     },
   ],
-  certifications: [
+  technicalTraining: [
     {
-      name: 'AWS Certified Solutions Architect',
-      issuer: 'Amazon Web Services',
-      date: 'Mar 2023',
-      expirationDate: 'Mar 2026',
-      credentialId: 'ABC123XYZ',
+      institution: 'General Assembly',
+      program: 'Software Engineering Bootcamp Certificate',
+      dates: 'June 2020 – September 2020',
+    },
+  ],
+  nonTechnicalWorkExperience: [
+    {
+      title: 'Teacher & Department Chair',
+      organization: 'Crown Point Community Schools',
+      location: 'Indiana',
+      dates: 'August 2016 – June 2020',
+    },
+    {
+      title: 'Teacher',
+      organization: 'School City of Hammond',
+      location: 'Indiana',
+      dates: 'August 2015 – August 2016',
+    },
+  ],
+  education: [
+    {
+      institution: 'DePaul University',
+      degree: 'Master of Music',
+      year: '2013',
+    },
+    {
+      institution: 'Indiana University',
+      degree: 'Bachelor of Music',
+      year: '2011',
     },
   ],
 }
