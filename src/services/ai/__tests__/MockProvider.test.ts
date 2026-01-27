@@ -71,9 +71,9 @@ describe('MockProvider', () => {
     vi.advanceTimersByTime(1000)
     const response = await promise
 
-    expect(response.content).toContain('Summary')
-    expect(response.content).toContain('Experience')
-    expect(response.content).toContain('Skills')
+    expect(response.content).toContain('Technical skills:')
+    expect(response.content).toContain('Work Experience')
+    expect(response.content).toContain('Kava Labs')
   })
 
   it('should allow configurable delay', async () => {

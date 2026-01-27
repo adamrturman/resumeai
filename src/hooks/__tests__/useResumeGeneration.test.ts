@@ -42,7 +42,7 @@ describe('useResumeGeneration', () => {
       expect(result.current.loading).toBe(false)
     })
 
-    expect(result.current.resume).toContain('Summary')
+    expect(result.current.resume).toContain('Technical skills:')
   })
 
   it('should extract company name from job description', async () => {
