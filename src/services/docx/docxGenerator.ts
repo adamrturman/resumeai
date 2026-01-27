@@ -18,6 +18,119 @@ export async function loadTemplate(): Promise<ArrayBuffer> {
   return response.arrayBuffer()
 }
 
+interface JobSection {
+  title: string
+  key: keyof ResumeData['bullets']
+  marker: string
+}
+
+const JOB_SECTIONS: JobSection[] = [
+  {
+    title: 'Senior Software Engineer',
+    key: 'seniorEngineer',
+    marker: 'Senior Software Engineer',
+  },
+  {
+    title: 'Software Engineer II',
+    key: 'engineerII',
+    marker: 'Software Engineer II',
+  },
+  {
+    title: 'Software Engineer I',
+    key: 'engineerI',
+    marker: 'Software Engineer I,',
+  },
+  {
+    title: 'Frontend Engineer',
+    key: 'frontendEngineer',
+    marker: 'Frontend Engineer',
+  },
+  {
+    title: 'Developer Support Engineer',
+    key: 'developerSupport',
+    marker: 'Developer Support Engineer',
+  },
+]
+
+function createBulletParagraph(
+  text: string,
+  numId: string,
+  isFirst: boolean
+): string {
+  const spacing = isFirst
+    ? '<w:spacing w:after="0" w:afterAutospacing="0" w:before="240" w:lineRule="auto"/>'
+    : '<w:spacing w:after="0" w:afterAutospacing="0" w:before="0" w:beforeAutospacing="0" w:lineRule="auto"/>'
+
+  return `<w:p><w:pPr><w:numPr><w:ilvl w:val="0"/><w:numId w:val="${numId}"/></w:numPr>${spacing}<w:ind w:left="720" w:hanging="360"/><w:rPr><w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr></w:pPr><w:r><w:rPr><w:sz w:val="16"/><w:szCs w:val="16"/><w:rtl w:val="0"/></w:rPr><w:t xml:space="preserve">${escapeXml(text)}</w:t></w:r></w:p>`
+}
+
+function escapeXml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
+function replaceBulletsForSection(
+  xml: string,
+  sectionMarker: string,
+  nextSectionMarker: string | null,
+  newBullets: string[]
+): string {
+  // Find the section start
+  const sectionStart = xml.indexOf(sectionMarker)
+  if (sectionStart === -1) return xml
+
+  // Find section end (next job title or end of work experience)
+  let sectionEnd: number
+  if (nextSectionMarker) {
+    sectionEnd = xml.indexOf(
+      nextSectionMarker,
+      sectionStart + sectionMarker.length
+    )
+    if (sectionEnd === -1) sectionEnd = xml.length
+  } else {
+    // For last section, find "Technical Training" as the boundary
+    sectionEnd = xml.indexOf('Technical Training', sectionStart)
+    if (sectionEnd === -1) sectionEnd = xml.length
+  }
+
+  const beforeSection = xml.substring(0, sectionStart)
+  const section = xml.substring(sectionStart, sectionEnd)
+  const afterSection = xml.substring(sectionEnd)
+
+  // Find all bullet paragraphs in this section (paragraphs with <w:numPr>)
+  const bulletRegex = /<w:p[^>]*>(?=<w:pPr><w:numPr>).*?<\/w:p>/g
+  const bullets = section.match(bulletRegex) || []
+
+  if (bullets.length === 0) return xml
+
+  // Extract the numId from the first bullet
+  const numIdMatch = bullets[0].match(/<w:numId w:val="(\d+)"/)
+  const numId = numIdMatch ? numIdMatch[1] : '1'
+
+  // Find where bullets start in the section
+  const firstBulletIndex = section.indexOf(bullets[0])
+  const lastBulletEndIndex =
+    section.lastIndexOf(bullets[bullets.length - 1]) +
+    bullets[bullets.length - 1].length
+
+  // Build new bullets
+  const newBulletXml = newBullets
+    .map((text, i) => createBulletParagraph(text, numId, i === 0))
+    .join('')
+
+  // Replace old bullets with new ones
+  const newSection =
+    section.substring(0, firstBulletIndex) +
+    newBulletXml +
+    section.substring(lastBulletEndIndex)
+
+  return beforeSection + newSection + afterSection
+}
+
 export function modifyResume(
   templateBuffer: ArrayBuffer,
   data: ResumeData
@@ -32,14 +145,29 @@ export function modifyResume(
   let modifiedXml = xmlContent
 
   // Replace technical skills
-  // Find the pattern: "Technical skills: </w:t></w:r><w:r...><w:t...>SKILLS_HERE</w:t>"
   const skillsRegex =
-    /(Technical skills: <\/w:t><\/w:r>.*?<w:t[^>]*>)([^<]+)(<\/w:t>)/
+    /(<w:t[^>]*>Technical skills: <\/w:t><\/w:r>.*?<w:t[^>]*>)([^<]+)(<\/w:t>)/
   modifiedXml = modifiedXml.replace(skillsRegex, `$1${data.technicalSkills}$3`)
 
-  // Alternative pattern if skills are in same run
-  const skillsRegex2 = /(Technical skills: )([^<]+)(<\/w:t>)/
+  // Alternative pattern if skills are in different structure
+  const skillsRegex2 = /(>Technical skills: )([^<]+)(<\/w:t>)/
   modifiedXml = modifiedXml.replace(skillsRegex2, `$1${data.technicalSkills}$3`)
+
+  // Replace bullets for each job section
+  for (let i = 0; i < JOB_SECTIONS.length; i++) {
+    const section = JOB_SECTIONS[i]
+    const nextSection = JOB_SECTIONS[i + 1] || null
+    const bullets = data.bullets[section.key]
+
+    if (bullets && bullets.length > 0) {
+      modifiedXml = replaceBulletsForSection(
+        modifiedXml,
+        section.marker,
+        nextSection?.marker || null,
+        bullets
+      )
+    }
+  }
 
   zip.file('word/document.xml', modifiedXml)
 
