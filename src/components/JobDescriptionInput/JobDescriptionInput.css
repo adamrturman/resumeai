@@ -1,0 +1,26 @@
+.job-description-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.job-description-input label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.job-description-input textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  resize: vertical;
+  min-height: 200px;
+}
+
+.job-description-input textarea:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
