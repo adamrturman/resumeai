@@ -157,4 +157,114 @@ describe('ResumeOutput', () => {
 
     expect(screen.getByRole('button', { name: /copied/i })).toBeInTheDocument()
   })
+
+  describe('loading skeleton', () => {
+    it('should show loading skeleton when loading', () => {
+      render(
+        <ResumeOutput
+          content={null}
+          resumeData={null}
+          companyName=""
+          onCopy={() => {}}
+          onDownload={() => {}}
+          loading={true}
+        />
+      )
+
+      expect(screen.getByText(/generating/i)).toBeInTheDocument()
+    })
+
+    it('should show spinner when loading', () => {
+      const { container } = render(
+        <ResumeOutput
+          content={null}
+          resumeData={null}
+          companyName=""
+          onCopy={() => {}}
+          onDownload={() => {}}
+          loading={true}
+        />
+      )
+
+      expect(container.querySelector('.spinner')).toBeInTheDocument()
+    })
+
+    it('should show preview header when loading', () => {
+      render(
+        <ResumeOutput
+          content={null}
+          resumeData={null}
+          companyName=""
+          onCopy={() => {}}
+          onDownload={() => {}}
+          loading={true}
+        />
+      )
+
+      expect(
+        screen.getByRole('heading', { name: /preview of customized sections/i })
+      ).toBeInTheDocument()
+    })
+
+    it('should not show action buttons when loading', () => {
+      render(
+        <ResumeOutput
+          content={null}
+          resumeData={null}
+          companyName=""
+          onCopy={() => {}}
+          onDownload={() => {}}
+          loading={true}
+        />
+      )
+
+      expect(screen.queryByRole('button', { name: /copy/i })).not.toBeInTheDocument()
+      expect(screen.queryByRole('button', { name: /download/i })).not.toBeInTheDocument()
+    })
+
+    it('should not show actual content when loading', () => {
+      render(
+        <ResumeOutput
+          content="Resume content"
+          resumeData={mockResumeData}
+          companyName="Google"
+          onCopy={() => {}}
+          onDownload={() => {}}
+          loading={true}
+        />
+      )
+
+      expect(screen.queryByText(/javascript/i)).not.toBeInTheDocument()
+      expect(screen.queryByText(/led frontend architecture/i)).not.toBeInTheDocument()
+    })
+
+    it('should show content after loading completes', () => {
+      const { rerender } = render(
+        <ResumeOutput
+          content={null}
+          resumeData={null}
+          companyName=""
+          onCopy={() => {}}
+          onDownload={() => {}}
+          loading={true}
+        />
+      )
+
+      expect(screen.getByText(/generating/i)).toBeInTheDocument()
+
+      rerender(
+        <ResumeOutput
+          content="Resume content"
+          resumeData={mockResumeData}
+          companyName="Google"
+          onCopy={() => {}}
+          onDownload={() => {}}
+          loading={false}
+        />
+      )
+
+      expect(screen.queryByText(/generating/i)).not.toBeInTheDocument()
+      expect(screen.getByText(/javascript/i)).toBeInTheDocument()
+    })
+  })
 })

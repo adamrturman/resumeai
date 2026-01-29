@@ -28,10 +28,9 @@ describe('GenerateButton', () => {
     expect(screen.getByRole('button')).toBeDisabled()
   })
 
-  it('should show loading state when loading prop is true', () => {
+  it('should be disabled when loading prop is true', () => {
     render(<GenerateButton onClick={() => {}} loading />)
 
-    expect(screen.getByRole('button')).toHaveTextContent(/generating/i)
     expect(screen.getByRole('button')).toBeDisabled()
   })
 

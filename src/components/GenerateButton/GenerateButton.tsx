@@ -17,7 +17,7 @@ export function GenerateButton({
       onClick={onClick}
       disabled={disabled || loading}
     >
-      {loading ? 'Generating...' : 'Generate Resume'}
+      Generate Resume
     </button>
   )
 }

@@ -84,6 +84,7 @@ function App() {
             onCopy={handleCopy}
             onDownload={handleDownload}
             copied={copied}
+            loading={loading}
           />
         </section>
       </main>

@@ -8,6 +8,7 @@ interface ResumeOutputProps {
   onCopy: () => void
   onDownload: () => void
   copied?: boolean
+  loading?: boolean
 }
 
 const JOB_SECTIONS = [
@@ -18,13 +19,56 @@ const JOB_SECTIONS = [
   { key: 'developerSupport' as const, title: 'Developer Support Engineer' },
 ]
 
+function LoadingSkeleton() {
+  return (
+    <div className="resume-output">
+      <div className="resume-output-header">
+        <h2>Preview of Customized Sections</h2>
+      </div>
+      <div className="resume-preview skeleton-container">
+        <div className="skeleton-overlay">
+          <span className="spinner" aria-hidden="true" />
+          <span className="loading-text">
+            Generating<span className="animated-ellipsis" />
+          </span>
+        </div>
+        <div className="skeleton-content" aria-hidden="true">
+          <div className="preview-section skills-section">
+            <div className="skeleton-label" />
+            <div className="skeleton-line skeleton-line-full" />
+            <div className="skeleton-line skeleton-line-medium" />
+          </div>
+          <div className="preview-section experience-section">
+            <div className="skeleton-label" />
+            {JOB_SECTIONS.map((section) => (
+              <div key={section.key} className="skeleton-job-section">
+                <div className="skeleton-job-title" />
+                <div className="skeleton-bullets">
+                  <div className="skeleton-line skeleton-line-full" />
+                  <div className="skeleton-line skeleton-line-long" />
+                  <div className="skeleton-line skeleton-line-medium" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function ResumeOutput({
   content,
   resumeData,
   onCopy,
   onDownload,
   copied,
+  loading,
 }: ResumeOutputProps) {
+  if (loading) {
+    return <LoadingSkeleton />
+  }
+
   if (!content || !resumeData) {
     return null
   }
