@@ -38,11 +38,27 @@ LinkedIn: ${resume.contact.linkedin}
 Current Skills: ${resume.technicalSkills.map((s) => s.name).join(', ')}
 
 TASK:
-1. Select the most relevant skills from the AVAILABLE SKILLS list for this job
-2. Choose and potentially reorder bullet points to emphasize relevant experience
-3. Return a customized resume that highlights the candidate's fit for this role
+1. Extract the company name from the job description
+2. Select the most relevant skills from the AVAILABLE SKILLS list for this job (8-12 skills)
+3. Choose the most relevant bullet points for each role to emphasize relevant experience
+4. Return ONLY valid JSON in this exact format, no markdown or explanation:
 
-Remember: Do NOT add any skills or experiences not provided above.
+{
+  "companyName": "Company Name",
+  "technicalSkills": ["Skill1", "Skill2", ...],
+  "bullets": {
+    "seniorEngineer": ["bullet1", "bullet2", ...],
+    "engineerII": ["bullet1", "bullet2", ...],
+    "engineerI": ["bullet1", "bullet2"],
+    "frontendEngineer": ["bullet1", "bullet2"],
+    "developerSupport": ["bullet1"]
+  }
+}
+
+Remember:
+- Do NOT add any skills or bullet points not provided above
+- Select bullet points that best match the job requirements
+- Include 2-4 bullets for Senior Engineer and Engineer II, 1-2 for other roles
 `.trim()
 }
 

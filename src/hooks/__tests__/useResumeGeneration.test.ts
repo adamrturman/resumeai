@@ -1,6 +1,15 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { renderHook, act, waitFor } from '@testing-library/react'
 import { useResumeGeneration } from '../useResumeGeneration'
+import { MockProvider } from '../../services/ai/MockProvider'
+
+vi.mock('../../services/ai', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../../services/ai')>()
+  return {
+    ...actual,
+    getAIProvider: () => new MockProvider({ delayMs: 0 }),
+  }
+})
 
 describe('useResumeGeneration', () => {
   beforeEach(() => {

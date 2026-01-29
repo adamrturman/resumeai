@@ -1,0 +1,126 @@
+import type {
+  AIProvider,
+  AICompletionRequest,
+  AICompletionResponse,
+  ResumeContent,
+} from './types'
+
+export class OpenAIProvider implements AIProvider {
+  private apiKey: string
+
+  constructor(apiKey: string) {
+    this.apiKey = apiKey
+  }
+
+  async generateCompletion(
+    request: AICompletionRequest
+  ): Promise<AICompletionResponse> {
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        messages: [
+          {
+            role: 'system',
+            content:
+              'You are a resume customization assistant. You MUST respond with valid JSON only, no markdown or explanation.',
+          },
+          {
+            role: 'user',
+            content: request.prompt,
+          },
+        ],
+        max_tokens: request.maxTokens ?? 2000,
+        temperature: request.temperature ?? 0.3,
+      }),
+    })
+
+    if (!response.ok) {
+      const error = await response.text()
+      throw new Error(`OpenAI API error: ${response.status} - ${error}`)
+    }
+
+    const data = await response.json()
+    const content = data.choices[0]?.message?.content ?? ''
+
+    const resumeData = this.parseResumeContent(content)
+
+    return {
+      content: this.formatResumeAsText(resumeData),
+      resumeData,
+      usage: data.usage
+        ? {
+            promptTokens: data.usage.prompt_tokens,
+            completionTokens: data.usage.completion_tokens,
+            totalTokens: data.usage.total_tokens,
+          }
+        : undefined,
+    }
+  }
+
+  private parseResumeContent(content: string): ResumeContent {
+    const jsonMatch = content.match(/\{[\s\S]*\}/)
+    if (!jsonMatch) {
+      throw new Error('Failed to parse JSON from OpenAI response')
+    }
+
+    const parsed = JSON.parse(jsonMatch[0])
+
+    return {
+      companyName: parsed.companyName || 'Company',
+      technicalSkills: parsed.technicalSkills || [],
+      bullets: {
+        seniorEngineer: parsed.bullets?.seniorEngineer || [],
+        engineerII: parsed.bullets?.engineerII || [],
+        engineerI: parsed.bullets?.engineerI || [],
+        frontendEngineer: parsed.bullets?.frontendEngineer || [],
+        developerSupport: parsed.bullets?.developerSupport || [],
+      },
+    }
+  }
+
+  private formatResumeAsText(data: ResumeContent): string {
+    return `Adam Turman
+adamrturman@gmail.com
+linkedin.com/in/adam-r-turman
+
+Technical skills: ${data.technicalSkills.join(', ')}
+
+Work Experience
+
+Kava Labs
+
+Senior Software Engineer, April 2024 – Present
+${data.bullets.seniorEngineer.map((b) => `● ${b}`).join('\n')}
+
+Software Engineer II, May 2023 – March 2024
+${data.bullets.engineerII.map((b) => `● ${b}`).join('\n')}
+
+Software Engineer I, June 2022 – May 2023
+${data.bullets.engineerI.map((b) => `● ${b}`).join('\n')}
+
+Frontend Engineer, September 2021 – June 2022
+${data.bullets.frontendEngineer.map((b) => `● ${b}`).join('\n')}
+
+Developer Support Engineer, February 2021 – September 2021
+${data.bullets.developerSupport.map((b) => `● ${b}`).join('\n')}
+
+Technical Training
+
+General Assembly, Software Engineering Bootcamp Certificate, June 2020 – September 2020
+
+Non-technical Work Experience
+
+Teacher & Department Chair- Crown Point Community Schools (Indiana), August 2016 – June 2020
+Teacher - School City of Hammond (Indiana), August 2015 – August 2016
+
+Formal Education
+
+DePaul University, Master of Music, 2013
+Indiana University, Bachelor of Music, 2011`
+  }
+}
