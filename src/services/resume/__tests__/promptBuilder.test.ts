@@ -26,7 +26,7 @@ describe('promptBuilder', () => {
       )
 
       expect(prompt.toLowerCase()).toContain('only use skills')
-      expect(prompt.toLowerCase()).toContain('do not invent')
+      expect(prompt.toLowerCase()).toContain('never invent')
     })
 
     it('should include available skills from experience collection', () => {

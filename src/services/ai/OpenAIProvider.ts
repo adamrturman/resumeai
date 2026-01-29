@@ -27,7 +27,7 @@ export class OpenAIProvider implements AIProvider {
           {
             role: 'system',
             content:
-              'You are a resume customization assistant. You MUST respond with valid JSON only, no markdown or explanation.',
+              'You are a resume customization assistant. Reword bullet points to emphasize job-relevant experience, but never invent skills or achievements. Include ALL bullet points from each role. Respond with valid JSON only, no markdown or explanation.',
           },
           {
             role: 'user',

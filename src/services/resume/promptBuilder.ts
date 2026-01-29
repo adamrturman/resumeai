@@ -14,51 +14,45 @@ export function buildResumePrompt(
   })
 
   return `
-You are a resume customization assistant. Your task is to customize a resume for a specific job description.
+You are a resume customization assistant. Your task is to tailor a resume for a specific job description by rewording bullet points to emphasize relevant experience.
 
-CRITICAL INSTRUCTIONS - ANTI-HALLUCINATION:
-- ONLY use skills from the provided list below. Do NOT invent or add any skills not in this list.
-- ONLY use bullet points from the provided experience. Do NOT create new achievements or experiences.
-- Select the most relevant skills and customize bullet point emphasis based on the job requirements.
+CRITICAL RULES - DO NOT VIOLATE:
+1. ONLY use skills from the AVAILABLE SKILLS list below. Never invent skills I don't have.
+2. ONLY use experiences from the AVAILABLE BULLET POINTS below. Never invent achievements or experiences.
+3. You may REWORD bullet points to emphasize aspects relevant to the job, but the core facts must remain true.
+4. Include ALL bullet points for each role - do not omit any. The output should have the same number of bullets as the input.
 
 JOB DESCRIPTION:
 ${jobDescription}
 
-AVAILABLE SKILLS (select only from this list):
+AVAILABLE SKILLS (select 8-12 from this list, prioritizing those relevant to the job):
 ${skillsList}
 
-AVAILABLE BULLET POINTS BY ROLE:
+AVAILABLE BULLET POINTS BY ROLE (reword these to emphasize job-relevant aspects):
 ${bulletPointsList.join('\n')}
-
-RESUME TO CUSTOMIZE:
-Name: ${resume.contact.name}
-Email: ${resume.contact.email}
-LinkedIn: ${resume.contact.linkedin}
-
-Current Skills: ${resume.technicalSkills.map((s) => s.name).join(', ')}
 
 TASK:
 1. Extract the company name from the job description
-2. Select the most relevant skills from the AVAILABLE SKILLS list for this job (8-12 skills)
-3. Choose the most relevant bullet points for each role to emphasize relevant experience
-4. Return ONLY valid JSON in this exact format, no markdown or explanation:
+2. Select 8-12 skills from AVAILABLE SKILLS that best match the job requirements
+3. Reword EACH bullet point to emphasize aspects most relevant to this job:
+   - Keep the same core achievement/fact
+   - Adjust emphasis, keywords, and phrasing to align with job requirements
+   - Maintain similar length to the original bullet
+   - Include ALL bullets for each role (Senior Engineer: 3, Engineer II: 4, Engineer I: 2, Frontend Engineer: 2, Developer Support: 1)
+
+Return ONLY valid JSON in this exact format, no markdown or explanation:
 
 {
   "companyName": "Company Name",
   "technicalSkills": ["Skill1", "Skill2", ...],
   "bullets": {
-    "seniorEngineer": ["bullet1", "bullet2", ...],
-    "engineerII": ["bullet1", "bullet2", ...],
+    "seniorEngineer": ["bullet1", "bullet2", "bullet3"],
+    "engineerII": ["bullet1", "bullet2", "bullet3", "bullet4"],
     "engineerI": ["bullet1", "bullet2"],
     "frontendEngineer": ["bullet1", "bullet2"],
     "developerSupport": ["bullet1"]
   }
 }
-
-Remember:
-- Do NOT add any skills or bullet points not provided above
-- Select bullet points that best match the job requirements
-- Include 2-4 bullets for Senior Engineer and Engineer II, 1-2 for other roles
 `.trim()
 }
 
