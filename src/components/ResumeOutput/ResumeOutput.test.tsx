@@ -2,12 +2,26 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { ResumeOutput } from './ResumeOutput'
+import type { ResumeContent } from '../../services/ai/types'
+
+const mockResumeData: ResumeContent = {
+  companyName: 'Google',
+  technicalSkills: ['JavaScript', 'TypeScript', 'React'],
+  bullets: {
+    seniorEngineer: ['Led frontend architecture redesign'],
+    engineerII: ['Built scalable APIs'],
+    engineerI: ['Developed core features'],
+    frontendEngineer: ['Created responsive UI components'],
+    developerSupport: ['Resolved customer issues'],
+  },
+}
 
 describe('ResumeOutput', () => {
   it('should render nothing when no resume content is provided', () => {
     const { container } = render(
       <ResumeOutput
         content={null}
+        resumeData={null}
         companyName=""
         onCopy={() => {}}
         onDownload={() => {}}
@@ -17,24 +31,57 @@ describe('ResumeOutput', () => {
     expect(container).toBeEmptyDOMElement()
   })
 
-  it('should display resume content when provided', () => {
+  it('should render nothing when no resumeData is provided', () => {
+    const { container } = render(
+      <ResumeOutput
+        content="Some content"
+        resumeData={null}
+        companyName=""
+        onCopy={() => {}}
+        onDownload={() => {}}
+      />
+    )
+
+    expect(container).toBeEmptyDOMElement()
+  })
+
+  it('should display technical skills when provided', () => {
     render(
       <ResumeOutput
-        content="## Summary\nExperienced developer"
+        content="Resume content"
+        resumeData={mockResumeData}
         companyName="Google"
         onCopy={() => {}}
         onDownload={() => {}}
       />
     )
 
-    expect(screen.getByText(/summary/i)).toBeInTheDocument()
-    expect(screen.getByText(/experienced developer/i)).toBeInTheDocument()
+    expect(screen.getByText(/javascript/i)).toBeInTheDocument()
+    expect(screen.getByText(/typescript/i)).toBeInTheDocument()
+  })
+
+  it('should display job section bullets', () => {
+    render(
+      <ResumeOutput
+        content="Resume content"
+        resumeData={mockResumeData}
+        companyName="Google"
+        onCopy={() => {}}
+        onDownload={() => {}}
+      />
+    )
+
+    expect(
+      screen.getByText(/led frontend architecture redesign/i)
+    ).toBeInTheDocument()
+    expect(screen.getByText(/built scalable apis/i)).toBeInTheDocument()
   })
 
   it('should have a copy button', () => {
     render(
       <ResumeOutput
         content="Resume content"
+        resumeData={mockResumeData}
         companyName="Google"
         onCopy={() => {}}
         onDownload={() => {}}
@@ -51,6 +98,7 @@ describe('ResumeOutput', () => {
     render(
       <ResumeOutput
         content="Resume content"
+        resumeData={mockResumeData}
         companyName="Google"
         onCopy={handleCopy}
         onDownload={() => {}}
@@ -65,6 +113,7 @@ describe('ResumeOutput', () => {
     render(
       <ResumeOutput
         content="Resume content"
+        resumeData={mockResumeData}
         companyName="Google"
         onCopy={() => {}}
         onDownload={() => {}}
@@ -83,6 +132,7 @@ describe('ResumeOutput', () => {
     render(
       <ResumeOutput
         content="Resume content"
+        resumeData={mockResumeData}
         companyName="Google"
         onCopy={() => {}}
         onDownload={handleDownload}
@@ -97,6 +147,7 @@ describe('ResumeOutput', () => {
     render(
       <ResumeOutput
         content="Resume content"
+        resumeData={mockResumeData}
         companyName="Google"
         onCopy={() => {}}
         onDownload={() => {}}

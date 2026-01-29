@@ -180,7 +180,7 @@ export function modifyResume(
   return output
 }
 
-export function downloadBlob(blob: Blob, filename: string): void {
+function downloadBlob(blob: Blob, filename: string): void {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
@@ -191,6 +191,24 @@ export function downloadBlob(blob: Blob, filename: string): void {
   URL.revokeObjectURL(url)
 }
 
+const PDF_SERVER_URL = 'http://localhost:3001'
+
+async function convertToPdf(docxBlob: Blob): Promise<Blob> {
+  const formData = new FormData()
+  formData.append('file', docxBlob, 'resume.docx')
+
+  const response = await fetch(`${PDF_SERVER_URL}/convert-to-pdf`, {
+    method: 'POST',
+    body: formData,
+  })
+
+  if (!response.ok) {
+    throw new Error('Failed to convert to PDF')
+  }
+
+  return response.blob()
+}
+
 export async function generateResume(
   data: ResumeData,
   companyName: string
@@ -198,9 +216,11 @@ export async function generateResume(
   const templateBuffer = await loadTemplate()
   const modifiedDoc = modifyResume(templateBuffer, data)
 
-  const filename = companyName
-    ? `Turman, Adam - Resume (${companyName}).docx`
-    : 'Turman, Adam - Resume.docx'
+  const pdfBlob = await convertToPdf(modifiedDoc)
 
-  downloadBlob(modifiedDoc, filename)
+  const filename = companyName
+    ? `Turman, Adam - Resume (${companyName}).pdf`
+    : 'Turman, Adam - Resume.pdf'
+
+  downloadBlob(pdfBlob, filename)
 }

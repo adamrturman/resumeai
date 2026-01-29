@@ -50,16 +50,84 @@
   background-color: #0052a3;
 }
 
-.resume-content {
-  padding: 1.5rem;
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
+/* Resume Preview - styled to match actual resume */
+.resume-preview {
+  background-color: white;
+  border: 1px solid #d1d5db;
   border-radius: 4px;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  white-space: pre-wrap;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
-.resume-content p {
-  margin: 0 0 0.5rem;
+.preview-section {
+  margin-bottom: 1.5rem;
+}
+
+.preview-section:last-child {
+  margin-bottom: 0;
+}
+
+.preview-label {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Skills Section */
+.skills-section .skills-text {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #1f2937;
+}
+
+.skills-section .skills-text strong {
+  font-weight: 600;
+}
+
+/* Experience Section */
+.experience-section {
+  margin-top: 1rem;
+}
+
+.job-section {
+  margin-bottom: 1rem;
+}
+
+.job-section:last-child {
+  margin-bottom: 0;
+}
+
+.job-title {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.bullet-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.bullet-list li {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.bullet-list li:last-child {
+  margin-bottom: 0;
 }

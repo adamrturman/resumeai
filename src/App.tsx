@@ -79,6 +79,7 @@ function App() {
         <section className="output-section">
           <ResumeOutput
             content={resume}
+            resumeData={resumeData}
             companyName={companyName}
             onCopy={handleCopy}
             onDownload={handleDownload}

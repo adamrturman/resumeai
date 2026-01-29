@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "server": "cd server && npm run dev",
+    "server:install": "cd server && npm install"
   },
   "dependencies": {
     "docxtemplater": "^3.67.6",
