@@ -2,6 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './App'
+import type { AICompletionResponse } from './services/ai/types'
 
 vi.mock('./services/ai', () => ({
   getAIProvider: vi.fn(),
@@ -18,6 +19,7 @@ const mockResumeResponse = {
   resumeData: {
     companyName: 'Test Company',
     technicalSkills: ['JavaScript', 'React'],
+    usedKeywords: ['JavaScript', 'React'],
     bullets: {
       seniorEngineer: ['Led team projects'],
       engineerII: ['Built features'],
@@ -36,12 +38,12 @@ describe('App Integration', () => {
   describe('loading state', () => {
     it('should show loading skeleton when generating resume', async () => {
       const user = userEvent.setup()
-      let resolveGeneration: (value: typeof mockResumeResponse) => void
+      let resolveGeneration: (value: AICompletionResponse) => void
 
       const mockProvider = {
         generateCompletion: vi.fn(
           () =>
-            new Promise((resolve) => {
+            new Promise<AICompletionResponse>((resolve) => {
               resolveGeneration = resolve
             })
         ),
@@ -59,7 +61,9 @@ describe('App Integration', () => {
       await user.click(generateButton)
 
       expect(screen.getByText(/generating/i)).toBeInTheDocument()
-      expect(screen.getByRole('button', { name: /generate resume/i })).toBeDisabled()
+      expect(
+        screen.getByRole('button', { name: /generate resume/i })
+      ).toBeDisabled()
 
       resolveGeneration!(mockResumeResponse)
 
@@ -70,12 +74,12 @@ describe('App Integration', () => {
 
     it('should show spinner during loading', async () => {
       const user = userEvent.setup()
-      let resolveGeneration: (value: typeof mockResumeResponse) => void
+      let resolveGeneration: (value: AICompletionResponse) => void
 
       const mockProvider = {
         generateCompletion: vi.fn(
           () =>
-            new Promise((resolve) => {
+            new Promise<AICompletionResponse>((resolve) => {
               resolveGeneration = resolve
             })
         ),
@@ -117,10 +121,14 @@ describe('App Integration', () => {
         expect(screen.getByText(/javascript/i)).toBeInTheDocument()
       })
 
-      expect(screen.getByText(/led team projects/i)).toBeInTheDocument()
-      expect(
-        screen.getByRole('button', { name: /copy/i })
-      ).toBeInTheDocument()
+      // Text may be split across spans due to diff highlighting
+      const bulletLists = screen.getAllByRole('list')
+      const allBulletText = bulletLists
+        .map((list) => list.textContent)
+        .join(' ')
+      expect(allBulletText).toMatch(/led team projects/i)
+
+      expect(screen.getByRole('button', { name: /copy/i })).toBeInTheDocument()
       expect(
         screen.getByRole('button', { name: /download resume/i })
       ).toBeInTheDocument()
@@ -128,12 +136,12 @@ describe('App Integration', () => {
 
     it('should keep generate button disabled during loading', async () => {
       const user = userEvent.setup()
-      let resolveGeneration: (value: typeof mockResumeResponse) => void
+      let resolveGeneration: (value: AICompletionResponse) => void
 
       const mockProvider = {
         generateCompletion: vi.fn(
           () =>
-            new Promise((resolve) => {
+            new Promise<AICompletionResponse>((resolve) => {
               resolveGeneration = resolve
             })
         ),

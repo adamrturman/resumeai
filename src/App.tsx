@@ -81,6 +81,7 @@ function App() {
             content={resume}
             resumeData={resumeData}
             companyName={companyName}
+            usedKeywords={resumeData?.usedKeywords}
             onCopy={handleCopy}
             onDownload={handleDownload}
             copied={copied}

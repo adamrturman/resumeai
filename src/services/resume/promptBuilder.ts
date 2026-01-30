@@ -2,7 +2,7 @@ import type { BaseResume, ExperienceCollection } from '../../data/types'
 
 export function buildResumePrompt(
   jobDescription: string,
-  resume: BaseResume,
+  _resume: BaseResume,
   experience: ExperienceCollection
 ): string {
   const skillsList = experience.allSkills.map((s) => s.name).join(', ')
@@ -39,12 +39,19 @@ TASK:
    - Adjust emphasis, keywords, and phrasing to align with job requirements
    - Maintain similar length to the original bullet
    - Include ALL bullets for each role (Senior Engineer: 3, Engineer II: 4, Engineer I: 2, Frontend Engineer: 2, Developer Support: 1)
+4. Track which keywords/phrases from the job description you incorporated into the resume:
+   - Include technologies (React, TypeScript, AWS, etc.)
+   - Include methodologies (agile, CI/CD, TDD, etc.)
+   - Include domain concepts (scalable, microservices, etc.)
+   - Include relevant action verbs (collaborate, lead, optimize, etc.)
+   - Do NOT include common words (and, the, with, for, etc.)
 
 Return ONLY valid JSON in this exact format, no markdown or explanation:
 
 {
   "companyName": "Company Name",
   "technicalSkills": ["Skill1", "Skill2", ...],
+  "usedKeywords": ["keyword1", "keyword2", ...],
   "bullets": {
     "seniorEngineer": ["bullet1", "bullet2", "bullet3"],
     "engineerII": ["bullet1", "bullet2", "bullet3", "bullet4"],

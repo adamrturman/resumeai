@@ -73,6 +73,7 @@ export class OpenAIProvider implements AIProvider {
     return {
       companyName: parsed.companyName || 'Company',
       technicalSkills: parsed.technicalSkills || [],
+      usedKeywords: parsed.usedKeywords || [],
       bullets: {
         seniorEngineer: parsed.bullets?.seniorEngineer || [],
         engineerII: parsed.bullets?.engineerII || [],

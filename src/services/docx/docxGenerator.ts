@@ -105,17 +105,17 @@ function replaceBulletsForSection(
   const bulletRegex = /<w:p[^>]*>(?=<w:pPr><w:numPr>).*?<\/w:p>/g
   const bullets = section.match(bulletRegex) || []
 
-  if (bullets.length === 0) return xml
+  const firstBullet = bullets[0]
+  const lastBullet = bullets[bullets.length - 1]
+  if (!firstBullet || !lastBullet) return xml
 
   // Extract the numId from the first bullet
-  const numIdMatch = bullets[0].match(/<w:numId w:val="(\d+)"/)
+  const numIdMatch = firstBullet.match(/<w:numId w:val="(\d+)"/)
   const numId = numIdMatch ? numIdMatch[1] : '1'
 
   // Find where bullets start in the section
-  const firstBulletIndex = section.indexOf(bullets[0])
-  const lastBulletEndIndex =
-    section.lastIndexOf(bullets[bullets.length - 1]) +
-    bullets[bullets.length - 1].length
+  const firstBulletIndex = section.indexOf(firstBullet)
+  const lastBulletEndIndex = section.lastIndexOf(lastBullet) + lastBullet.length
 
   // Build new bullets
   const newBulletXml = newBullets

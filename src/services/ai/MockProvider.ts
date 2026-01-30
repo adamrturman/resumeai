@@ -22,6 +22,7 @@ const MOCK_RESUME_DATA: ResumeContent = {
     'Vite',
     'RESTful APIs',
   ],
+  usedKeywords: ['React', 'TypeScript', 'CI/CD', 'scalable', 'agile'],
   bullets: {
     seniorEngineer: [
       'Design and build scalable, production-grade frontend applications using React and TypeScript, with a strong focus on performance, accessibility, and maintainable architecture',

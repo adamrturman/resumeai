@@ -7,6 +7,7 @@ export interface AICompletionRequest {
 export interface ResumeContent {
   companyName: string
   technicalSkills: string[]
+  usedKeywords: string[]
   bullets: {
     seniorEngineer: string[]
     engineerII: string[]

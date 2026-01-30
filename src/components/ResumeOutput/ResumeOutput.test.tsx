@@ -7,6 +7,7 @@ import type { ResumeContent } from '../../services/ai/types'
 const mockResumeData: ResumeContent = {
   companyName: 'Google',
   technicalSkills: ['JavaScript', 'TypeScript', 'React'],
+  usedKeywords: ['JavaScript', 'TypeScript', 'React'],
   bullets: {
     seniorEngineer: ['Led frontend architecture redesign'],
     engineerII: ['Built scalable APIs'],
@@ -71,10 +72,12 @@ describe('ResumeOutput', () => {
       />
     )
 
-    expect(
-      screen.getByText(/led frontend architecture redesign/i)
-    ).toBeInTheDocument()
-    expect(screen.getByText(/built scalable apis/i)).toBeInTheDocument()
+    // Text may be split across spans due to diff highlighting
+    const bulletLists = screen.getAllByRole('list')
+    const allText = bulletLists.map((list) => list.textContent).join(' ')
+
+    expect(allText).toMatch(/led frontend architecture redesign/i)
+    expect(allText).toMatch(/built scalable apis/i)
   })
 
   it('should have a copy button', () => {
@@ -218,8 +221,12 @@ describe('ResumeOutput', () => {
         />
       )
 
-      expect(screen.queryByRole('button', { name: /copy/i })).not.toBeInTheDocument()
-      expect(screen.queryByRole('button', { name: /download/i })).not.toBeInTheDocument()
+      expect(
+        screen.queryByRole('button', { name: /copy/i })
+      ).not.toBeInTheDocument()
+      expect(
+        screen.queryByRole('button', { name: /download/i })
+      ).not.toBeInTheDocument()
     })
 
     it('should not show actual content when loading', () => {
@@ -235,7 +242,9 @@ describe('ResumeOutput', () => {
       )
 
       expect(screen.queryByText(/javascript/i)).not.toBeInTheDocument()
-      expect(screen.queryByText(/led frontend architecture/i)).not.toBeInTheDocument()
+      expect(
+        screen.queryByText(/led frontend architecture/i)
+      ).not.toBeInTheDocument()
     })
 
     it('should show content after loading completes', () => {
