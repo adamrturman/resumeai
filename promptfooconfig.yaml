@@ -1,5 +1,6 @@
 prompts:
-  - file://promptfoo/prompt.txt
+  - file://promptfoo/prompt-v1.txt
+  - file://promptfoo/prompt-v2.txt
 
 providers:
   - ollama:llama3.2
