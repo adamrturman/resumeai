@@ -34,16 +34,16 @@ ${bulletPointsList.join('\n')}
 TASK:
 1. Extract the company name from the job description
 2. Select 8-12 skills from AVAILABLE SKILLS that best match the job requirements
-3. Reword EACH bullet point to emphasize aspects most relevant to this job:
+3. Reword EACH bullet point to incorporate relevant keywords from the job description:
    - Keep the same core achievement/fact
-   - Adjust emphasis, keywords, and phrasing to align with job requirements
+   - Actively weave in job keywords where they truthfully apply (e.g., if job mentions "batch processing" and you have pipeline experience, mention "batch processing pipelines")
+   - Map your transferable skills to the job's terminology
    - Maintain similar length to the original bullet
    - Include ALL bullets for each role (Senior Engineer: 3, Engineer II: 4, Engineer I: 2, Frontend Engineer: 2, Developer Support: 1)
-4. Track which keywords/phrases from the job description you incorporated into the resume:
-   - Include technologies (React, TypeScript, AWS, etc.)
-   - Include methodologies (agile, CI/CD, TDD, etc.)
-   - Include domain concepts (scalable, microservices, etc.)
-   - Include relevant action verbs (collaborate, lead, optimize, etc.)
+4. Track which keywords/phrases from the job description you ACTUALLY incorporated into the reworded bullets:
+   - ONLY include keywords that literally appear in your generated bullet text
+   - Do NOT list keywords you didn't use
+   - Include technologies, methodologies, domain concepts, and action verbs
    - Do NOT include common words (and, the, with, for, etc.)
 
 Return ONLY valid JSON in this exact format, no markdown or explanation:

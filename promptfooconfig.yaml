@@ -1,0 +1,25 @@
+prompts:
+  - file://promptfoo/prompt.txt
+
+providers:
+  - ollama:llama3.2
+
+tests:
+  - vars:
+      jobDescription: "Software Engineer at Acme Corp. Looking for React and TypeScript experience."
+    assert:
+      - type: is-json
+      - type: javascript
+        value: JSON.parse(output).technicalSkills?.length >= 8
+
+  - vars:
+      jobDescription: "Legacy Systems Developer at MainframeCorp. Required: 5+ years experience in COBOL, JCL, and mainframe development. Must have expertise in batch processing and VSAM file handling."
+    assert:
+      - type: is-json
+      - type: javascript
+        value: |
+          const skills = JSON.parse(output).technicalSkills || [];
+          const hasOnlyValidSkills = skills.every(skill =>
+            ["JavaScript (ES6+)", "TypeScript", "React", "Python", "Git", "Jest", "CI/CD", "Vite", "RESTful APIs", "HTML5", "CSS3", "Agile/Scrum", "Vitest", "Playwright", "GitHub Actions"].includes(skill)
+          );
+          return hasOnlyValidSkills;

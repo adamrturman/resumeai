@@ -12,7 +12,9 @@
     "test:run": "vitest run",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "server": "cd server && npm run dev",
-    "server:install": "cd server && npm install"
+    "server:install": "cd server && npm install",
+    "promptfoo": "promptfoo eval",
+    "promptfoo:view": "promptfoo view"
   },
   "dependencies": {
     "docxtemplater": "^3.67.6",
@@ -38,6 +40,7 @@
     "globals": "^16.5.0",
     "jsdom": "^27.4.0",
     "prettier": "^3.8.1",
+    "promptfoo": "^0.120.20",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
