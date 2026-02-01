@@ -16,7 +16,7 @@
   font-family: inherit;
   font-size: 0.875rem;
   resize: vertical;
-  min-height: 200px;
+  min-height: 300px;
 }
 
 .job-description-input textarea:focus {

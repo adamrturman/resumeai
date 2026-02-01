@@ -55,39 +55,40 @@ function App() {
       </header>
 
       <main className="app-main">
-        <section className="input-section">
-          <JobDescriptionInput
-            value={jobDescription}
-            onChange={setJobDescription}
-          />
-          <div className="button-group">
-            <GenerateButton
-              onClick={handleGenerate}
-              disabled={!jobDescription.trim()}
+        <div className="content-panels">
+          <section className="input-panel">
+            <JobDescriptionInput
+              value={jobDescription}
+              onChange={setJobDescription}
+            />
+            <div className="button-group">
+              <GenerateButton
+                onClick={handleGenerate}
+                disabled={!jobDescription.trim()}
+                loading={loading}
+              />
+              {resume && (
+                <button className="reset-button" onClick={handleReset}>
+                  Start Over
+                </button>
+              )}
+            </div>
+            <ErrorDisplay error={error} />
+          </section>
+
+          <section className="output-panel">
+            <ResumeOutput
+              content={resume}
+              resumeData={resumeData}
+              companyName={companyName}
+              usedKeywords={resumeData?.usedKeywords}
+              onCopy={handleCopy}
+              onDownload={handleDownload}
+              copied={copied}
               loading={loading}
             />
-            {resume && (
-              <button className="reset-button" onClick={handleReset}>
-                Start Over
-              </button>
-            )}
-          </div>
-        </section>
-
-        <ErrorDisplay error={error} />
-
-        <section className="output-section">
-          <ResumeOutput
-            content={resume}
-            resumeData={resumeData}
-            companyName={companyName}
-            usedKeywords={resumeData?.usedKeywords}
-            onCopy={handleCopy}
-            onDownload={handleDownload}
-            copied={copied}
-            loading={loading}
-          />
-        </section>
+          </section>
+        </div>
       </main>
     </div>
   )
