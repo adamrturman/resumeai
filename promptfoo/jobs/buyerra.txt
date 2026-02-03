@@ -1,0 +1,31 @@
+Buyerra is a Series A–backed SaaS company modernizing the $100B+ heavy equipment rental industry. We've built an end-to-end platform that helps rental businesses run smarter — spanning operations, payments, marketing, and accounting integrations and so much more.
+
+This is a hybrid role based in Chicago, with regular in-office collaboration and flexibility for focused remote work.
+
+How we work:
+We value velocity and efficiency through fast iteration cycles. Our lean team doesn't sit on ceremony – build times, deployments, and meetings are all streamlined so we can deliver the most effective solutions to our customers.
+
+What you'll do:
+Design, Build and Innovate: Lead and contribute to greenfield projects, develop new features and products from scratch.
+Collaborate Closely: Engineering is a team effort; we produce our best work together. Work closely with our product and support teams to ensure we are solving the right problems
+Customer-Centric Development: Have high empathy for our users, consistently seek feedback and iterate on our products to improve their experience.
+Business-Minded Decision Making: Make daily decisions on when we should invest in more sound architecture, leverage vendors and integrations or cut corners and scope to deliver functionality to our customers.
+Optimize and Deliver: Participate in a lean and fast-moving development process that is consistently iterated and improved upon.
+Report directly to the CTO
+Provide production support and ensure system reliability.
+Collaborate with business analysts, QA teams, and operations to ensure smooth delivery.
+Document technical processes and contribute to system modernization initiatives.
+
+Mandatory Skills:
+Strong hands-on expertise in COBOL and DB2.
+Experience with IMS DB/DC, JCL, and CICS in enterprise environments.
+Proficiency in designing, coding, testing, and supporting mainframe applications.
+Solid understanding of enterprise application architecture and SDLC.
+Ability to troubleshoot and resolve application and performance issues.
+
+Desirable Skills:
+Experience with CA Scheduler or similar job scheduling tools.
+Knowledge of application modernization strategies (e.g., migrating legacy applications to distributed or cloud platforms).
+Familiarity with performance monitoring and tuning in DB2 and CICS environments.
+Strong documentation and knowledge-sharing skills.
+Exposure to Agile development methodologies.
