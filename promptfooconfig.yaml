@@ -5,40 +5,20 @@ prompts:
 providers:
   - ollama:llama3.2
 
+defaultTest:
+  assert:
+    - type: is-json
+    - type: javascript
+      value: file://promptfoo/assertions/no-forbidden-terms.js
+    - type: javascript
+      value: file://promptfoo/assertions/required-terms-present.js
+
 tests:
   - vars:
       jobDescription: file://promptfoo/jobs/acme-corp.txt
-    assert:
-      - type: is-json
-      - type: javascript
-        value: |
-          const data = JSON.parse(output);
-          const bullets = data.bullets || {};
-          const allBulletText = Object.values(bullets).flat().join(' ').toLowerCase();
-          const hasReact = allBulletText.includes('react');
-          const hasTypeScript = allBulletText.includes('typescript');
-          return hasReact && hasTypeScript;
 
   - vars:
       jobDescription: file://promptfoo/jobs/mainframe-corp.txt
-    assert:
-      - type: is-json
-      - type: javascript
-        value: |
-          const data = JSON.parse(output);
-          const bullets = data.bullets || {};
-          const allBulletText = Object.values(bullets).flat().join(' ').toLowerCase();
-          const forbiddenTerms = ['cobol', 'jcl', 'mainframe', 'vsam'];
-          const containsForbidden = forbiddenTerms.some(term => allBulletText.includes(term));
-          return !containsForbidden;
 
   - vars:
       jobDescription: file://promptfoo/jobs/buyerra.txt
-    assert:
-      - type: is-json
-      - type: javascript
-        value: |
-          const data = JSON.parse(output);
-          const bullets = data.bullets || {};
-          const allBulletText = Object.values(bullets).flat().join(' ').toLowerCase();
-          return !allBulletText.includes('buyerra');

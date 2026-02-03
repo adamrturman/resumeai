@@ -1,0 +1,44 @@
+const fs = require('fs');
+const path = require('path');
+
+module.exports = (output, context) => {
+  let data;
+  try {
+    data = JSON.parse(output);
+  } catch {
+    return {
+      pass: false,
+      score: 0,
+      reason: 'Output is not valid JSON',
+    };
+  }
+
+  const bullets = data.bullets || {};
+  const allBulletText = Object.values(bullets).flat().join(' ').toLowerCase();
+
+  // Load forbidden terms from file
+  const termsFile = path.join(process.cwd(), 'promptfoo', 'forbidden-terms.txt');
+  const termsContent = fs.readFileSync(termsFile, 'utf-8');
+  const forbiddenTerms = termsContent
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('#'))
+    .map((term) => term.toLowerCase());
+
+  // Use word boundary matching to avoid false positives (e.g., "scala" in "scalable")
+  const found = forbiddenTerms.filter((term) => {
+    const regex = new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+    return regex.test(allBulletText);
+  });
+
+  if (found.length > 0) {
+    return {
+      pass: false,
+      score: 0,
+      reason: `Found forbidden terms: ${found.join(', ')}`,
+    };
+  }
+
+  // Return true for passing - promptfoo accepts boolean for pass
+  return true;
+};
