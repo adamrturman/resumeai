@@ -123,14 +123,4 @@ promptfoo/
 promptfooconfig.yaml       # Test configuration and assertions
 ```
 
-## Key Takeaways
-
-1. **Negative examples outperform negative instructions.** "Don't do X" is weaker than "Here's what X looks like, don't do that."
-
-2. **Weak models are better test subjects.** They expose prompt weaknesses that stronger models might paper over.
-
-3. **Assertions make prompts testable.** Without Promptfoo, I'd be manually checking outputs and hoping I caught all the edge cases.
-
-4. **High-stakes applications need guardrails.** Resume generation isn't a creative writing task—accuracy is non-negotiable.
-
 ---
