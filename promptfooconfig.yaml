@@ -15,10 +15,4 @@ defaultTest:
 
 tests:
   - vars:
-      jobDescription: file://promptfoo/jobs/acme-corp.txt
-
-  - vars:
-      jobDescription: file://promptfoo/jobs/mainframe-corp.txt
-
-  - vars:
-      jobDescription: file://promptfoo/jobs/buyerra.txt
+      jobDescription: file://promptfoo/jobs/*.txt
