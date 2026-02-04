@@ -16,7 +16,7 @@ TASK:
 2. Select skills from AVAILABLE SKILLS that best match the job requirements
 3. Reword EACH bullet point to incorporate relevant keywords from the job description:
    - Keep the same core achievement/fact
-   - PRESERVE technology names already in the bullets (React, TypeScript, Python, etc.)
+   - PRESERVE technology names already in the bullets (skills from your AVAILABLE SKILLS list)
    - If the job mentions skills I HAVE, make sure those terms appear in the reworded bullets
    - If the job mentions skills I DON'T HAVE, substitute my closest matching skills - never invent experience
    - Weave in transferable CONCEPT keywords but not technology names I lack
