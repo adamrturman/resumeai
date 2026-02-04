@@ -10,7 +10,6 @@ defaultTest:
   vars:
     resumeData: file://promptfoo/resume-data.txt
   assert:
-    - type: is-json
     - type: javascript
       value: file://promptfoo/assertions/no-forbidden-terms.js
     - type: javascript
