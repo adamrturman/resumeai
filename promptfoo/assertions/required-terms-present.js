@@ -1,6 +1,21 @@
 const fs = require('fs');
 const path = require('path');
 
+// Extract JSON from output that may contain text before/after the JSON
+function extractJson(output) {
+  // Try parsing as-is first
+  try {
+    return JSON.parse(output);
+  } catch {
+    // Find JSON object in the text
+    const match = output.match(/\{[\s\S]*\}/);
+    if (match) {
+      return JSON.parse(match[0]);
+    }
+    return null;
+  }
+}
+
 // Extract skill names from baseResume.ts by parsing the technicalSkills array
 function extractSkillsFromBaseResume() {
   const resumeFile = path.join(process.cwd(), 'src', 'data', 'baseResume.ts');
@@ -18,14 +33,12 @@ function extractSkillsFromBaseResume() {
 }
 
 module.exports = (output, context) => {
-  let data;
-  try {
-    data = JSON.parse(output);
-  } catch {
+  const data = extractJson(output);
+  if (!data) {
     return {
       pass: false,
       score: 0,
-      reason: 'Output is not valid JSON',
+      reason: 'Could not extract valid JSON from output',
     };
   }
 

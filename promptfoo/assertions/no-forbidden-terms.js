@@ -1,15 +1,28 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = (output, context) => {
-  let data;
+// Extract JSON from output that may contain text before/after the JSON
+function extractJson(output) {
+  // Try parsing as-is first
   try {
-    data = JSON.parse(output);
+    return JSON.parse(output);
   } catch {
+    // Find JSON object in the text
+    const match = output.match(/\{[\s\S]*\}/);
+    if (match) {
+      return JSON.parse(match[0]);
+    }
+    return null;
+  }
+}
+
+module.exports = (output, context) => {
+  const data = extractJson(output);
+  if (!data) {
     return {
       pass: false,
       score: 0,
-      reason: 'Output is not valid JSON',
+      reason: 'Could not extract valid JSON from output',
     };
   }
 
