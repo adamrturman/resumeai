@@ -6,6 +6,19 @@ CRITICAL RULES:
 - If the job requires skills NOT in my list, do NOT mention those terms anywhere - use my closest relevant skills instead.
 - Transferable concepts are OK to use, but technology names I don't have are NOT OK.
 
+EXAMPLES:
+
+GOOD - Job asks for "React and TypeScript" (skills I HAVE):
+  technicalSkills: ["React", "TypeScript", "JavaScript (ES6+)"]
+  bullet: "Built reusable React/TypeScript component library..."
+
+BAD - Job asks for "COBOL and mainframe" (skills I DON'T have):
+  WRONG: ["COBOL", "Mainframe"]
+  WRONG bullet: "Designed COBOL-based batch processing..."
+
+  CORRECT: ["Python", "Git"]
+  CORRECT bullet: "Designed automated processing pipelines in Python..."
+
 JOB DESCRIPTION:
 {{jobDescription}}
 

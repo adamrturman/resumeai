@@ -1,11 +1,14 @@
 prompts:
   - file://promptfoo/prompt-v1.txt
   - file://promptfoo/prompt-v2.txt
+  - file://promptfoo/prompt-v3.txt
 
 providers:
   - ollama:llama3.2
 
 defaultTest:
+  vars:
+    resumeData: file://promptfoo/resume-data.txt
   assert:
     - type: is-json
     - type: javascript
