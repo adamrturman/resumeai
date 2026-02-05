@@ -1,0 +1,124 @@
+# Forbidden Terms for Resume Generation
+# These are skills/technologies from job descriptions that are NOT in the base resume.
+# The AI should never claim experience with these unless they're added to the resume.
+# Review and remove any terms that ARE actually in your experience.
+
+# Legacy/Mainframe Technologies
+cobol
+jcl
+mainframe
+vsam
+db2
+ims
+cics
+batch processing
+ca scheduler
+
+# Cloud Platforms (not in resume)
+aws
+gcp
+google cloud
+azure
+kubernetes
+k8s
+docker
+terraform
+cloudformation
+deployment manager
+fedramp
+nist
+
+# Databases (not in resume)
+mongodb
+postgres
+postgresql
+mysql
+redis
+snowflake
+databricks
+dynamodb
+
+# Backend Frameworks (not in resume)
+node.js
+nodejs
+express
+fastify
+django
+flask
+spring
+rails
+ruby
+
+# Frontend (not in resume beyond React)
+graphql
+vue
+angular
+svelte
+next.js
+nextjs
+nuxt
+gatsby
+
+# DevOps/Infrastructure (beyond what's in resume)
+jenkins
+circleci
+travis
+datadog
+splunk
+prometheus
+grafana
+new relic
+pagerduty
+
+# Languages (not in resume)
+java
+go
+golang
+rust
+c++
+c#
+scala
+kotlin
+ruby
+php
+perl
+swift
+objective-c
+
+# Data/ML (beyond what's in resume)
+spark
+hadoop
+kafka
+airflow
+dbt
+tableau
+power bi
+looker
+machine learning
+tensorflow
+pytorch
+
+# Design Tools
+sketch
+adobe xd
+invision
+
+# Specific Products/Services
+clickhouse
+salesforce
+hubspot
+zendesk
+
+# Company Names (should never appear in generated content)
+acme
+buyerra
+clickhouse
+dualentry
+extenteam
+hightouch
+lightfeather
+mainframecorp
+mx technologies
+noonlight
+pitchbook
+sigma computing

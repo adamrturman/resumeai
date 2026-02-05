@@ -1,0 +1,151 @@
+Company: cookunity
+Position: Senior Backend Engineer
+URL: https://boards.greenhouse.io/cookunity/jobs/7607525003
+
+[Back to all jobs](https://careers.cookunity.com/open-roles) [Apply Now](https://careers.cookunity.com/jobs/7607525003#application-form)
+
+# Senior Backend Engineer - Ops Tech
+
+Engineering
+
+Buenos Aires, Buenos Aires, Argentina
+
+### About CookUnity:
+
+Food has lost its soul to modern convenience. And with it, it has lost the power to nourish, inspire, and connect us. So in 2018, CookUnity was founded as the first-of-its-kind platform that connects the world with the source of truly great food: chefs. Today, CookUnity delivers 50 million meals a year from the industry’s best chefs to homes all over the country. Fresh. Ready-to-eat. And crafted with the passion that nourishes body and soul.
+
+Unwilling to stop there, CookUnity is expanding beyond delivery to become an ever-innovating marketplace focused on our singular mission: **empower Chefs to nourish the world.**
+
+If that mission has you hungry in more ways than one, you’ve found the right job posting.
+
+### About the Team:
+
+The **OpsTech Team** is a critical part of **CookUnity’s ChefOS Zone**, dedicated to building and optimizing software solutions for **Fulfillment, Logistics, and Labor Tracking** . This team ensures that orders are efficiently packed, tracked, and delivered with precision, leveraging technology to streamline every step of the process. Our systems directly impact the speed, accuracy, and efficiency of meal delivery, ensuring that customers receive their meals fresh and on time.
+
+### The role:
+
+We are looking for a Senior Engineer to play a key role in building and optimizing our fulfillment and logistics technology. This is a backend engineering position, with a focus on TypeScript and Kotlin for backend development. The ideal candidate will have a deep understanding of scalable backend architectures, real-time tracking systems, and intuitive frontend interfaces that power our fulfillment and logistics operations.
+
+This role requires a **technology-agnostic mindset**, with a willingness to explore and contribute to new tech stacks when needed. You’ll collaborate closely with product managers, operations teams, and other engineers to ensure our logistics and fulfillment systems are best-in-class.
+
+### **Responsibilities:**
+
+- Design, develop, and maintain **backend services using TypeScript (Node.js) or Kotlin** to support fulfillment and logistics and workforce tracking operations
+- Work with real-time tracking and order management systems to improve efficiency and accuracy in fulfillment processes
+- Participate in the Ops Engineering R&D projects, experimenting with new technologies and developing POCs for operational improvements
+- Collaborate with cross-functional teams, including fulfillment managers, logistics coordinators, data engineers, and other engineering squads to develop technology solutions that address real-world operational challenges
+- Ensure system reliability, security, and scalability, implementing best practices in monitoring, logging, and performance optimization
+- Write clean, maintainable, and well-documented code while mentoring junior engineers and conducting thorough code reviews
+- Stay ahead of industry trends, continuously seeking opportunities to innovate within fulfillment and logistics tech
+
+* * *
+
+### **Qualifications:**
+
+- 5+ years of experience in backend software development
+- Proficiency in **TypeScript (Node.js), Kotlin, or Java for backend development**
+- Strong experience with **data modeling and relational databases**, particularly **PostgreSQL**, including **SQL optimization, indexing, and transactional workflows**
+- Deep understanding of **microservices architecture** and scalable backend design
+- Experience working with real-time tracking systems, logistics platforms, or warehouse management solutions
+- Passion for R&D and innovation, with experience building POCs and exploring emerging technologies
+- Strong problem-solving skills and ability to adapt to new technologies and environments quickly
+- Comfortable working in fast-paced, operationally intensive environments
+- Excellent communication and collaboration skills, with a focus on cross-team partnerships
+
+### **Preferred requirements:**
+
+- Experience with GraphQL, event-driven architectures, or message queues (Kafka, RabbitMQ, etc.)
+- Exposure to cloud services (AWS, GCP, or Azure) and infrastructure automation (Terraform, Kubernetes, Docker)
+- Background in logistics, fulfillment, or last-mile delivery systems
+- Familiarity with IoT, RFID, or smart tracking technologies
+
+* * *
+
+### **Learn More About CookUnity**
+
+We believe great leadership starts with alignment on vision, values, and ways of working. To give you deeper insight into who we are and what we’re looking for, we invite you to explore: [**CookUnity's Leadership Principles**](https://docs.google.com/presentation/d/1mGIRBDJLi0K908bKJtP24QNVMo6QmrsPrDeYCu4dAts/edit?usp=sharing) – The values and behaviors that guide how we operate, collaborate, and scale.
+
+We hope this provides valuable insight into our culture and product vision. If this excites you, we’d love to connect!
+
+* * *
+
+### Benefits
+
+💸 Get paid in USD
+
+🗺 Work remotely: design the life that you want
+
+⛱ Enjoy 15 days of vacation each year from the start date
+
+🎄 16 fully paid Argentinean holidays
+
+🩺 Healthcare Benefit: Monthly stipend to use in your preferred healthcare provider
+
+🗓️ 5- year Sabbatical: After 5 years with CookUnity, you get a 4-week paid sabbatical
+
+🐣 Paid Family leave
+
+🕯 Compassionate Leave: 3-5 days each time the need arises
+
+🧘🏽‍♀️ Customize the benefits that suit your needs! Access a range of perks tailored to you, including learning opportunities, wellness memberships, delivery apps, and more through our comprehensive benefit platform
+
+🧑‍🏫 Personalized English coach
+
+If you’re interested in this role, please submit your application, and if we think you might be a fit, we'll get in touch with you. **Thank you for your time!**
+
+_**CookUnity is an Equal Opportunity Employer**. We are dedicated to creating a community of inclusion and an environment free from discrimination or harassment. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, age, sexual orientation, gender identity, national origin, citizenship status, protected veteran status, genetic information, or physical or mental disability._
+
+_**A quick note for all candidates**_
+
+_We’ve recently seen an increase in recruitment scams across the industry, and we want to make sure you (and your data) **stay safe while applying to CookUnity.** We also want you to know that we take this seriously — sometimes, as part of our process, we may ask for a brief **“proof of humanity”** to confirm that we’re connecting with a real person, not an impersonator._ _Here are a few tips to help you protect yourself and know what to expect from us:_
+
+- _**Apply only through our official channels.**All open roles are listed on our official careers page: [careers.cookunity.com](http://careers.cookunity.com/)_
+- _**Our recruiters are real people — and easy to verify.**You can always find them on LinkedIn with verified profiles. If you’re unsure, feel free to reach out to us on our official [LinkedIn Company Page](https://www.linkedin.com/company/cookunity/)._
+- _**We only communicate through official CookUnity channels.**That means emails ending in `@cookunity.com` and interviews held through official company platforms (Google Meet or Zoom) — never WhatsApp, Telegram, or SMS._
+- _**We’ll never ask for payment or personal financial details.**If anyone does, please don’t share any information and let us know right away._
+
+_If something ever feels off or you’re unsure about a message, we’d much rather you double-check with us. You can always contact us directly through any of our social media channels. We appreciate your interest in joining CookUnity — and **we care about keeping your experience (and safety) as genuine as possible.**_
+
+## Apply for this position
+
+Join our team and help us transform the food industry!
+
+First Name
+
+Last Name
+
+Preferred First Name(Optional)
+
+Email
+
+Phone
+
+Resume/CV
+
+Attach File
+
+Accepted file types: pdf, doc, docx, txt, rtf
+
+Cover Letter(Optional)
+
+Attach File
+
+Accepted file types: pdf, doc, docx, txt, rtf
+
+LinkedIn Profile
+
+Where do you currently live?
+
+Can you assist with the on-call rotation to ensure the business operates 24/7?(Optional)
+
+Select an optionYesNo
+
+Are you able to communicate effectively in English at a B2 level or higher in a professional work environment, including meetings, emails, and collaboration with international teams?(Optional)
+
+Select an optionYesNo
+
+Do you count with 5+ years of experience as a Software Engineer? (Optional)
+
+Select an optionYesNo
+
+Submit application

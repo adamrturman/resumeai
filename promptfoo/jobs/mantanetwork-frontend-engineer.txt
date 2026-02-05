@@ -1,0 +1,59 @@
+Company: MantaNetwork
+Position: Frontend Engineer
+URL: https://jobs.lever.co/MantaNetwork/140fac74-a90f-4eb0-b64b-1cf0213183bb
+
+[![Manta Network, Powered by p0x labs logo](https://lever-client-logos.s3.us-west-2.amazonaws.com/6c4b0863-94ca-4838-b09b-4c41ede67cb6-1671126985222.png)](https://jobs.lever.co/MantaNetwork)
+
+## Frontend Engineer
+
+Any
+
+Engineering /
+
+Remote
+
+[Apply for this job](https://jobs.lever.co/MantaNetwork/140fac74-a90f-4eb0-b64b-1cf0213183bb/apply)
+
+**About the Role**
+
+Shape the future of Web3 by building fast, high-quality frontend applications. As a key part of our team, you’ll design and develop core features to create a smooth and responsive user experience. You’ll work closely with product, design, and blockchain teams to bring ideas to life from start to finish.
+
+**Core Responsibilities**
+
+Architect, develop, and maintain high-performance, responsive web applications using modern frontend technologies
+
+Collaborate closely with product, design, and blockchain teams to deliver exceptional user experiences
+
+Build pixel-perfect UI components from Figma mockups and design assets
+
+Debug and troubleshoot issues across the full web stack
+
+**Qualifications**
+
+Bachelor’s in Computer Science or related field, or equivalent experience
+
+3+ years in frontend development, with 1+ years in Web3/DeFi
+
+Expertise in JavaScript, TypeScript, React ecosystem
+
+Solid understanding of web performance optimization and best practices
+
+Experience with [Web3.js](http://web3.js/), [Ethers.js](http://ethers.js/), and an understanding of Web3 principles (wallets, smart contracts)
+
+**Soft Skills:**
+
+Basic English verbal and written communication skills are required
+
+Strong collaboration abilities in a remote, cross-functional team
+
+Ownership mindset - “you build it, you run it”
+
+Problem-solving skills with attention to detail
+
+Quick learner in a fast-paced environment
+
+[Apply for this job](https://jobs.lever.co/MantaNetwork/140fac74-a90f-4eb0-b64b-1cf0213183bb/apply)
+
+[Manta Network, Powered by p0x labs Home Page](http://www.manta.network/)
+
+[Jobs powered by ![Lever logo](https://jobs.lever.co/img/lever-logo-full.svg)](https://www.lever.co/job-seeker-support/)

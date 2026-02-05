@@ -1,0 +1,85 @@
+Company: politanalytics
+Position: React Frontend Engineer (mid
+URL: https://jobs.ashbyhq.com/politanalytics/36286769-25ef-4b2e-9d7f-0b402faf1303
+
+- [![PolitAnalytics](https://app.ashbyhq.com/api/images/org-theme-wordmark/0706e082-a7ac-466c-a37b-64c5efc36880/b825a58d-f2cd-4ffd-8a7b-7637d9fbde8a/4e0a0b65-9879-4bfa-a04d-28f62925c809.png)](https://politanalytics.om/jobs)
+- [Back to PolitAnalytics’s Job Listings](https://jobs.ashbyhq.com/politanalytics)
+
+# React Frontend Engineer (mid-level or senior) (f/m/\*, 80%-100%, remote, B2B)
+
+## Location
+
+Chișinău, Remote, Tirana, Sarajevo, Pristina, Sofia
+
+## Employment Type
+
+Full time
+
+## Location Type
+
+Remote
+
+## Department
+
+Frontend (React)
+
+## Compensation
+
+- Mid-Senior€28K – €45K • Offers Equity • Offers Bonus
+
+Your role is dedicated to long-term learning and self-developing. Therefore we offer competitive compensation, based on location, qualification, experience, and there are additional benefits, depending on your needs and goals. We will work fully remote. Any full-time role can be performed part-time (80-100%) too, with great flexibility, and we support flexible working arrangements. We are a family friendly employer.
+
+We are POLITANALYTICS, a Swiss / European policy and regularory platform which helps politics & policy professionals to monitor and manage their political matters. We are growing! So, we are hiring a new team member – as soon as possible:
+
+![](https://app.ashbyhq.com/api/images/user-content/0706e082-a7ac-466c-a37b-64c5efc36880/ec06ea96-1788-44dd-939d-a469ec9209c6/React-Front-End-1763x2048.png)
+
+# **React Frontend Engineer (mid-level or senior) (f/m/\*, 80%-100%, remote)**
+
+**Requirements / job description:**
+
+- Good English level, speaking, writing, understanding
+
+- The candidate should have the ability (and willingness) to travel mind. two times per year for team meetings.
+
+- 4+ years of experience
+
+- We are looking for capable individuals, rather than an agency person. A person should be able to take responsibility for their decisions.
+
+- Proactive, team person – no lonely wolves, no stable geniuses
+
+- You don't hesitate to speak with other members of the company, not only developers (mainly Backenders, UI/UX)
+
+
+**Tech stack:**
+
+- React (Next.js not required), TypeScript (proficiency), Vite, MUI (Material UI), @tanstack/react-query, Storybook, Cypress, i18n, react-hook-form
+
+- Worked with tools: Figma
+
+
+As we share common values of diversity, we especially encourage ️‍🌈everybody ️‍🌈  to apply for this position. PolitAnalytics is based on Symfony, React, D3.js and some more libraries. You will join a fully agile (ScrumBan) team of back-end / front-end developers / product & design team. Our tool is a comprehensive, reliable, fast, and independent platform that collects and processes open government data focusing on politics.
+
+Your role is dedicated to long-term learning and self-developing, so you will be key in maintaining and expanding our platform. Therefore we offer competitive compensation based on your location, and additional benefits, depending on your needs and goals. We will work fully remote. Your role can be performed part-time (80-100%), with great flexibility, and we support flexible working arrangements.
+
+You need to be based in Europe / within CET (max. ± 2h) timezone, fully able (passport, visa) to travel internationally twice a year.
+
+**Hiring process**
+
+Our hiring process follows usually 3 interviews.
+
+1. Personal interview, social fitness check
+
+2. Live coding tasks with senior team members present, as well as a skills assessment during this interview
+
+3. Final HR / contracting interview.
+
+
+Please send your application (CV, cover letter, portfolio link / track record of relevant projects)  through this platform.
+
+Don’t hesitate to ask any questions.
+
+Compensation Range: €28K - €45K
+
+[Apply for this Job](https://jobs.ashbyhq.com/politanalytics/36286769-25ef-4b2e-9d7f-0b402faf1303/application)
+
+This site is protected by reCAPTCHA and the Google [Privacy Policy](https://policies.google.com/privacy) and [Terms of Service](https://policies.google.com/terms) apply.

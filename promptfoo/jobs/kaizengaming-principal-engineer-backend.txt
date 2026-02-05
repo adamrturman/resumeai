@@ -1,0 +1,52 @@
+Company: kaizengaming
+Position: Principal Engineer (Backend)
+URL: https://boards.greenhouse.io/kaizengaming/jobs/6096950003
+
+[![Kaizen Logo](https://productioncms.kaizengaming.com/uploads/header_Logo_b1c17ae784.svg)](https://careers.kaizengaming.com/home)
+
+[About Us](https://careers.kaizengaming.com/about-us) [Locations](https://careers.kaizengaming.com/locations) [Our people](https://careers.kaizengaming.com/our-people) [Work with us](https://careers.kaizengaming.com/work-with-us) [Apply](https://careers.kaizengaming.com/apply) [Events](https://careers.kaizengaming.com/events) [Commercial Talent Programme](https://careers.kaizengaming.com/the-playmakers) [Corporate](https://www.kaizengaming.com/)
+
+![Menu Arrow](https://productioncms.kaizengaming.com/uploads/menu_Arrow_fb6139bf0c.svg) back
+
+[![LinkedIn Logo](https://productioncms.kaizengaming.com/uploads/linkedin_Header_369f0a6f19.svg)](https://www.linkedin.com/company/kaizen-gaming/)[![LinkedIn Logo](https://productioncms.kaizengaming.com/uploads/instagram_Header_98ad042e8b.svg)](https://www.instagram.com/kaizenplanet)[![LinkedIn Logo](https://productioncms.kaizengaming.com/uploads/facebook_Header_572ab2d5b3.svg)](https://www.facebook.com/WeAreKaizenGaming/)[![LinkedIn Logo](https://productioncms.kaizengaming.com/uploads/youtube_Header_06feb2778c.svg)](https://www.youtube.com/c/KaizenGamingOneTeam)
+
+![Mobile Hamburger Logo](https://productioncms.kaizengaming.com/uploads/hamburger_f35240e05a.svg)
+
+Search jobs
+
+![Mobile Hamburger Logo](https://productioncms.kaizengaming.com/uploads/magnifying_Glass_19d48fd630.svg)
+
+We are Kaizen Gaming
+
+Kaizen Gaming, the team powering Betano, is one of the biggest GameTech companies in the world, operating in 19 markets. We always aim to leverage cutting-edge technology, providing the best experience to our millions of customers who trust us for their entertainment.
+
+We are a diverse team of more than 2.700 Kaizeners, from 40+ nationalities spreading across 3 continents.
+
+Our #oneteam is proud to be among the Best Workplaces in Europe and certified Great Place to Work across our offices. Here, there’ll be no average day for you. Ready to Press Play on Potential?
+
+Let's start with the role
+
+As a Principal Backend Engineer, you will play a critical role in designing and implementing cutting-edge, scalable, and high-performance backend systems. We're on the lookout for a tech expert who not only thrives on technical leadership but can also mentor engineers of all stripes. In this role, you'll be the mastermind behind our robust and efficient software solutions, collaborating seamlessly with cross-functional teams.
+
+**As a Principal Backend Engineer, you will:**
+
+- Architect & Innovate: Collaborate with our agile team to architect scalable, secure, and high-performance backend systems that power our cutting-edge solutions.
+- Craft High-Performance Code: Develop clean and efficient code that drives the heart of our technology stack.
+- Mentorship: Inspire and mentor fellow tech leaders, fostering skill growth and best practices.
+- Optimize Performance: Lead the charge in identifying and enhancing system performance for seamless user experiences.
+- Seamless Integration: Work closely with cross-functional teams and stakeholders to ensure smooth system integration.
+- Stay Ahead: Stay ahead of the tech curve, applying emerging technologies to enhance our capabilities and disrupt the industry.
+- Establish Company Best Practices: Collaborate closely with PE I to set company best practices and lay the foundations for developing new software.
+- Strategic Technical Roadmap: Define and focus on the company-wide technical roadmap unencumbered by the more time-sensitive business needs of the product roadmap.
+
+What you’ll bring:
+
+- Deep knowledge of the Microsoft .NET platform and its ecosystem or willingness to learn
+- Proven track record of professional experience with multiple programming languages and paradigms as well as designing, implementing, and scaling performant, distributed systems and microservice architectures
+- Experience with message brokers such as Kafka or RabbitMQ and messaging patterns
+- Experience with DevOps practices and containerization technologies
+- Ability to work autonomously on highly complex tasks, keeping in mind various aspects such as performance, security, observability, and code quality
+- Passion for monitoring and troubleshooting production systems and being able to make data-driven decisions
+- Excellent communication and collaboration skills targeting a diverse audience from stakeholders to cross-functional technical teams, in order to provide technical guidance and insight
+- Excellent background in Computer Science, Software Engineering, or related field - preferably with a relevant Bachelor’s level degree or above
+- Exceptional fluency in English
