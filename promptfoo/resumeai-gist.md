@@ -4,17 +4,17 @@ A single-page app that generates customized resumes from job descriptions using 
 
 ## How It Works
 
-### 1. Paste a Job Description
-The user pastes a job description which gets sent to the LLM along with their base resume data.
+### Generate a Tailored Resume
 
-### 2. LLM Extracts and Matches Keywords
-The AI analyzes the job description, identifies relevant skills from the user's resume, and generates tailored bullet points that emphasize matching experience.
+1. **Paste a job description** to kick off the workflow
+2. **AI analyzes the posting** — extracts keywords and matches them against your base resume data
+3. **Review highlighted changes** — easily see what's been customized
+4. **Export as PDF** — downloads as `Turman, Adam - Resume (Company Name).pdf`
 
-### 3. Changes Are Highlighted
-The app highlights what changed between the base resume and the customized version, making it easy to review modifications.
 
-### 4. Download the Result
-Export the tailored resume as a PDF with the format: `Turman, Adam - Resume (Company Name).pdf`
+https://github.com/user-attachments/assets/5f68c57c-87c1-40a2-9b2e-92be5afca20a
+
+
 
 ## The Problem: LLM Hallucinations
 
@@ -49,6 +49,8 @@ if (matchesWordBoundary(bulletText, companyName)) return { pass: false }
 | v2 | Added guardrails around common errors | 72% |
 | v3 | Added examples of good and poor outcomes | 79% |
 
+<img width="1723" height="835" alt="Screenshot 2026-02-05 at 11 48 19 AM" src="https://github.com/user-attachments/assets/962da7cf-8965-4077-bd7e-44bcf22e0dd1" />
+
 ### Key Insight
 Each iteration of prompt engineering produced measurable improvements. The assertions caught specific failure modes, which informed targeted prompt refinements.
 
@@ -66,17 +68,3 @@ I deliberately chose `ollama:llama3.2` (a small local model) for testing because
 - OpenAI-compatible API (swappable architecture)
 - Vitest for unit tests
 - Promptfoo for LLM evaluation
-
-## Running the Tests
-
-```bash
-# Unit tests
-npm run test:run
-
-# Promptfoo evaluation
-npx promptfoo eval
-```
-
----
-
-Built with systematic prompt engineering principles: measure, iterate, validate.
