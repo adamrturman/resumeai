@@ -11,11 +11,11 @@ defaultTest:
     resumeData: file://promptfoo/resume-data.txt
   assert:
     - type: javascript
-      value: file://promptfoo/assertions/no-forbidden-terms.js
+      value: file://promptfoo/assertions/no-forbidden-terms.ts
     - type: javascript
-      value: file://promptfoo/assertions/required-terms-present.js
+      value: file://promptfoo/assertions/required-terms-present.ts
     - type: javascript
-      value: file://promptfoo/assertions/no-company-in-bullets.js
+      value: file://promptfoo/assertions/no-company-in-bullets.ts
 
 tests:
   - vars:
