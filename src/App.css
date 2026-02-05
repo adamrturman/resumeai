@@ -42,7 +42,7 @@
 }
 
 .output-panel {
-  min-height: 400px;
+  min-height: auto;
 }
 
 .button-group {

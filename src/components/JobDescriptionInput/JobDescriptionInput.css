@@ -7,6 +7,7 @@
 .job-description-input label {
   font-weight: 600;
   font-size: 1rem;
+  line-height: 1.5;
 }
 
 .job-description-input textarea {
@@ -16,7 +17,8 @@
   font-family: inherit;
   font-size: 0.875rem;
   resize: vertical;
-  min-height: 300px;
+  min-height: 280px;
+  max-height: 280px;
 }
 
 .job-description-input textarea:focus {

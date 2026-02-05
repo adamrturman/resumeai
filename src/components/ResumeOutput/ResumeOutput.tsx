@@ -26,6 +26,44 @@ const JOB_SECTIONS = [
   { key: 'developerSupport' as const, title: 'Developer Support Engineer' },
 ]
 
+function SkeletonContent() {
+  return (
+    <>
+      <div className="preview-section skills-section">
+        <div className="skeleton-label" />
+        <div className="skeleton-line skeleton-line-full" />
+        <div className="skeleton-line skeleton-line-medium" />
+      </div>
+      <div className="preview-section experience-section">
+        <div className="skeleton-label" />
+        {JOB_SECTIONS.map((section) => (
+          <div key={section.key} className="skeleton-job-section">
+            <div className="skeleton-job-title" />
+            <div className="skeleton-bullets">
+              <div className="skeleton-line skeleton-line-full" />
+              <div className="skeleton-line skeleton-line-long" />
+              <div className="skeleton-line skeleton-line-medium" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}
+
+function EmptySkeleton() {
+  return (
+    <div className="resume-output">
+      <div className="resume-output-header">
+        <h2>Preview of Customized Sections</h2>
+      </div>
+      <div className="resume-preview">
+        <SkeletonContent />
+      </div>
+    </div>
+  )
+}
+
 function LoadingSkeleton() {
   return (
     <div className="resume-output">
@@ -41,24 +79,7 @@ function LoadingSkeleton() {
           </span>
         </div>
         <div className="skeleton-content" aria-hidden="true">
-          <div className="preview-section skills-section">
-            <div className="skeleton-label" />
-            <div className="skeleton-line skeleton-line-full" />
-            <div className="skeleton-line skeleton-line-medium" />
-          </div>
-          <div className="preview-section experience-section">
-            <div className="skeleton-label" />
-            {JOB_SECTIONS.map((section) => (
-              <div key={section.key} className="skeleton-job-section">
-                <div className="skeleton-job-title" />
-                <div className="skeleton-bullets">
-                  <div className="skeleton-line skeleton-line-full" />
-                  <div className="skeleton-line skeleton-line-long" />
-                  <div className="skeleton-line skeleton-line-medium" />
-                </div>
-              </div>
-            ))}
-          </div>
+          <SkeletonContent />
         </div>
       </div>
     </div>
@@ -131,7 +152,7 @@ export function ResumeOutput({
   }
 
   if (!content || !resumeData) {
-    return null
+    return <EmptySkeleton />
   }
 
   return (

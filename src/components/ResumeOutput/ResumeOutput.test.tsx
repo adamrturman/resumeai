@@ -18,7 +18,7 @@ const mockResumeData: ResumeContent = {
 }
 
 describe('ResumeOutput', () => {
-  it('should render nothing when no resume content is provided', () => {
+  it('should render skeleton when no resume content is provided', () => {
     const { container } = render(
       <ResumeOutput
         content={null}
@@ -29,10 +29,14 @@ describe('ResumeOutput', () => {
       />
     )
 
-    expect(container).toBeEmptyDOMElement()
+    expect(
+      screen.getByRole('heading', { name: /preview of customized sections/i })
+    ).toBeInTheDocument()
+    expect(container.querySelector('.skeleton-line')).toBeInTheDocument()
+    expect(screen.queryByText(/generating/i)).not.toBeInTheDocument()
   })
 
-  it('should render nothing when no resumeData is provided', () => {
+  it('should render skeleton when no resumeData is provided', () => {
     const { container } = render(
       <ResumeOutput
         content="Some content"
@@ -43,7 +47,11 @@ describe('ResumeOutput', () => {
       />
     )
 
-    expect(container).toBeEmptyDOMElement()
+    expect(
+      screen.getByRole('heading', { name: /preview of customized sections/i })
+    ).toBeInTheDocument()
+    expect(container.querySelector('.skeleton-line')).toBeInTheDocument()
+    expect(screen.queryByText(/generating/i)).not.toBeInTheDocument()
   })
 
   it('should display technical skills when provided', () => {
